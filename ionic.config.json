@@ -1,0 +1,7 @@
+{
+  "name": "gocorona-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
