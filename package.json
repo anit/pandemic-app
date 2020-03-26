@@ -9,7 +9,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "jetifier"
   },
   "private": true,
   "dependencies": {
@@ -34,6 +35,8 @@
     "cordova-plugin-firebase-authentication": "^3.1.0",
     "cordova-plugin-globalization": "^1.11.0",
     "cordova-plugin-network-information": "git+https://github.com/apache/cordova-plugin-network-information.git",
+    "cordova-support-android-plugin": "^1.0.1",
+    "cordova-support-google-services": "^1.4.0",
     "core-js": "^2.5.4",
     "ng-lottie": "^0.3.2",
     "phonegap-plugin-mobile-accessibility": "^1.0.5",
@@ -47,14 +50,18 @@
     "@angular/compiler": "~8.2.14",
     "@angular/compiler-cli": "~8.2.14",
     "@angular/language-service": "~8.2.14",
+    "@babel/compat-data": "~7.8.0",
+    "@babel/preset-env": "7.8.7",
     "@capacitor/cli": "1.5.1",
     "@ionic/angular-toolkit": "^2.1.1",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "babel-loader": "8.1.0",
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
+    "jetifier": "^1.6.5",
     "karma": "~4.1.0",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~2.0.1",
@@ -64,10 +71,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.4.3",
-    "@babel/compat-data": "~7.8.0",
-    "@babel/preset-env": "7.8.7",
-    "babel-loader": "8.1.0"
+    "typescript": "~3.4.3"
   },
   "description": "An Ionic project",
   "resolutions": {

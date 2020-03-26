@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.r41.gocorona;
 
 import android.os.Bundle;
 
