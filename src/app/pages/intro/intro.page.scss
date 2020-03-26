@@ -1,0 +1,28 @@
+.intro-wrapper {
+    ion-slides {
+        height: 100%;
+
+        ion-slide {
+            align-items: normal;
+        }
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1.17em;
+    }
+
+    ion-button {
+        font-size: 1em;
+        height: 3em;
+    }
+
+    .btn-row {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+}

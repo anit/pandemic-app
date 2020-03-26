@@ -1,0 +1,112 @@
+<ion-content class="intro-wrapper">
+  <ion-slides [options]="slideOptions" (ionSlideDidChange)="slideChanged()">
+
+    <!--Welcome-->
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <h1>
+              <strong>{{ 'INTRO.APP_TITLE' | translate }}</strong>
+            </h1>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="animation-wrapper">
+          <ion-col>
+            <ion-img height="400" [src]="animations.welcome"></ion-img>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <h3>
+              <strong>{{ 'INTRO.WELCOME' | translate }}</strong>
+            </h3>
+            <div class="sub">
+              <small>{{ 'INTRO.WELCOME_SUB' | translate }}</small>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="btn-row">
+          <ion-col>
+            <ion-button expand="block" (click)="goToSlide(1)">{{ 'INTRO.NEXT_BTN' | translate }}</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+
+    <!--Privacy First-->
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <h1>
+              <strong>{{ 'INTRO.APP_TITLE' | translate }}</strong>
+            </h1>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="animation-wrapper">
+          <ion-col>
+            <ion-img height="400" [src]="animations.privacy"></ion-img>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <h3>
+              <strong>{{ 'INTRO.PRIVACY' | translate }}</strong>
+            </h3>
+            <div class="sub">
+              <small>{{ 'INTRO.PRIVACY_SUB' | translate }}</small>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="btn-row">
+          <ion-col>
+            <ion-button expand="block" (click)="goToSlide(2)">{{ 'INTRO.NEXT_BTN2' | translate }}</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+
+    <!--For and By the people-->
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <h1>
+              <strong>{{ 'INTRO.APP_TITLE' | translate }}</strong>
+            </h1>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="animation-wrapper">
+          <ion-col>
+            <ion-img height="400" [src]="animations.people"></ion-img>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <h3>
+              <strong>{{ 'INTRO.PEOPLE' | translate }}</strong>
+            </h3>
+            <div class="sub">
+              <small>{{ 'INTRO.PEOPLE_SUB' | translate }}</small>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="btn-row">
+          <ion-col>
+            <ion-button expand="block" routerLink="/ask">{{ 'INTRO.NEXT_BTN3' | translate }}</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

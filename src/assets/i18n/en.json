@@ -1,0 +1,16 @@
+{
+    "INTRO": {
+        "APP_TITLE": "CoronaGo",
+        "WELCOME": "Welcome To CoronaGo",
+        "WELCOME_SUB": "Stay Divided, Fight Together",
+        "NEXT_BTN": "Proceed",
+
+        "PRIVACY": "Privacy First",
+        "PRIVACY_SUB": "Login anonymously. Your data vanishes from our server on uninstall. Its that simple.",
+        "NEXT_BTN2": "Next",
+
+        "PEOPLE": "For and By the people",
+        "PEOPLE_SUB": "Share your covid status regularly and anonymously. Be that one stitch who saves 9.",
+        "NEXT_BTN3": "Get Started"
+    }
+}
