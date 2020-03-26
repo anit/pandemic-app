@@ -12,6 +12,14 @@ const routes: Routes = [
     path: 'ask',
     loadChildren: () => import('./pages/ask/ask.module').then( m => m.AskPageModule)
   },
+  {
+    path: 'about',
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'help',
+    loadChildren: () => import('./pages/help/help.module').then( m => m.HelpPageModule)
+  },
 ];
 
 @NgModule({
