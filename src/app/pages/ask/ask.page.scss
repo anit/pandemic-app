@@ -1,0 +1,20 @@
+.ask-wrapper {
+    hr {
+        width: 90%;
+        background: #ccc;
+        margin-top: 20px
+    }
+
+    ion-slides {
+        height: 100%;
+        .btn-row {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            ion-button {
+                font-size: 1em;
+                height: 3em;
+            }
+        }
+    }
+}

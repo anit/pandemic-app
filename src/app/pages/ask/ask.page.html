@@ -1,13 +1,122 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>ask</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ask-wrapper">
+  <ion-slides [options]="slideOptions">
+    <!--Age Group-->
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <h3>
+              Select your age group
+            </h3>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col 
+            size="6" 
+            *ngFor="let ag of ageGroups" 
+            class="single-select-tile" 
+            [ngClass]="{ 'active': formData.ag === ag.value }"
+            (click)="formData.ag = ag.value"> 
+            <ion-card>
+              <ion-img height="100" src="{{ 'assets/lottie/' + ag.icon }}"></ion-img>
+              <ion-card-content>
+                {{ ag.label }}
+              </ion-card-content>
+            </ion-card> 
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
 
-<ion-content>
-  <ion-row>
-    <ion-col>
-      <ion-button expand="block" (click)="fireAuth()">Login</ion-button>
-    </ion-col>
-  </ion-row>
+    <!--Previous Exposure-->
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <h3>
+              Select symptoms 
+            </h3>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-chip 
+            *ngFor="let item of symptomsList"
+            color="{{ formData.tags[item.value] ? 'success' : '' }}"
+            [ngClass]="{ 'active': formData.symptoms[item.value] }"
+            (click)="formData.tags[item.value] = !formData.tags[item.value]">
+            <ion-label>{{ item.label }}</ion-label>
+          </ion-chip>
+          <hr>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <h3>
+              Select pre existing conditions 
+            </h3>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-chip 
+            *ngFor="let item of preExisting"
+            color="{{ formData.tags[item.value] ? 'success' : '' }}"
+            [ngClass]="{ 'active': formData.tags[item.value] }"
+            (click)="formData.tags[item.value] = !formData.tags[item.value]">
+            <ion-label>{{ item.label }}</ion-label>
+          </ion-chip>
+          <hr>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <h3>
+              Anything else in last 20 days?
+            </h3>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-chip 
+            *ngFor="let item of travelHistory"
+            color="{{ formData.tags[item.value] ? 'success' : '' }}"
+            [ngClass]="{ 'active': formData.tags[item.value] }"
+            (click)="formData.tags[item.value] = !formData.tags[item.value]">
+            <ion-label>{{ item.label }}</ion-label>
+          </ion-chip>
+        </ion-row>
+
+        <ion-row class="btn-row">
+          <ion-col>
+            <ion-button expand="block" (click)="fireAuth()">{{ 'ASK.LOGIN' | translate }}</ion-button>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-slide>
+
+    <!--Current Covid Status-->
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <h3>
+              Which category below includes your age?
+            </h3>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" (click)="fireAuth()">Done</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+  </ion-slides>
 </ion-content>

@@ -4,19 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AskPageRoutingModule } from './ask-routing.module';
+import { DetailPageRoutingModule } from './detail-routing.module';
 
-import { AskPage } from './ask.page';
-import { TranslateModule } from '@ngx-translate/core';
+import { DetailPage } from './detail.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AskPageRoutingModule,
-    TranslateModule
+    DetailPageRoutingModule
   ],
-  declarations: [AskPage]
+  declarations: [DetailPage]
 })
-export class AskPageModule {}
+export class DetailPageModule {}
