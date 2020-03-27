@@ -4,5 +4,12 @@
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
-  "cordova": {}
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-googlemaps": {
+        "API_KEY_FOR_ANDROID": "AIzaSyCX84RQWe99dFwoiuRr4RnRHrLfSujDecM",
+        "API_KEY_FOR_IOS": ""
+      }
+    }
+  }
 }

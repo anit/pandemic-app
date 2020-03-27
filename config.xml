@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.r41.gocorona" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyCX84RQWe99dFwoiuRr4RnRHrLfSujDecM" />
+</widget>

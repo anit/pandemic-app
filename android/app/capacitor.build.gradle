@@ -11,7 +11,12 @@ apply from: "../capacitor-cordova-android-plugins/cordova.variables.gradle"
 dependencies {
 
     implementation "com.google.firebase:firebase-auth:19.3.+"
+    implementation "com.google.android.gms:play-services-maps:15.0.1"
+    implementation "com.google.android.gms:play-services-location:15.0.1"
+    implementation "com.android.support:support-core-utils:27.+"
 }
+apply from: "../../node_modules/cordova-plugin-googlemaps/src/android/frameworks/tbxml-android.gradle"
+apply from: "../../node_modules/cordova-plugin-googlemaps/src/android/frameworks/apikey.gradle"
 apply from: "../../node_modules/cordova-support-google-services/build.gradle"
 
 if (hasProperty('postBuildExtras')) {

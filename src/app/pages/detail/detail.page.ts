@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocationService } from 'src/app/services/location.service';
 
 @Component({
   selector: 'app-detail',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailPage implements OnInit {
 
-  constructor() { }
+  public myLoc: any = {};
+  public error: any = {};
+
+  constructor(private locationService: LocationService) { }
 
   ngOnInit() {
+    this.locationService.setCurrentCity().then((resp) => {
+      this.myLoc = this.locationService.currentLocation || resp || {};
+      this.error = this.error;
+    })
   }
 
 }

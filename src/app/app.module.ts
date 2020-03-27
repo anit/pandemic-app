@@ -18,6 +18,7 @@ import { Globalization } from '@ionic-native/globalization/ngx';
 import { TranslateConfigService } from './translate-config.service';
 import { MobileAccessibility } from '@ionic-native/mobile-accessibility/ngx';
 import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -48,6 +49,7 @@ export function createTranslateLoader(http: HttpClient) {
     MobileAccessibility,
     TranslateConfigService,
     FirebaseAuthentication,
+    Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

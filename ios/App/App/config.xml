@@ -11,6 +11,10 @@
     <param name="onload" value="false"/>
   </feature>
 
+  <feature name="Geolocation">
+    <param name="ios-package" value="CDVLocation"/>
+  </feature>
+
   <feature name="Globalization">
     <param name="ios-package" value="CDVGlobalization"/>
   </feature>
