@@ -1,4 +1,8 @@
 {
+    "UPDATE": "Update",
+    "BACK": "Back",
+
+
     "INTRO": {
         "APP_TITLE": "CoronaGo",
         "WELCOME": "Welcome To CoronaGo",
@@ -13,7 +17,9 @@
         "PEOPLE_SUB": "Your covid status will help us serve you better insights about the infection spread. Lets get on this fight together by providing accurate and timely covid infection data.",
         "NEXT_BTN3": "Get Started"
     },
+
+    
     "ASK": {
-        "LOGIN": "Login"
+        "UPDATE": "Update"
     }
 }

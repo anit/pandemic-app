@@ -16,7 +16,7 @@ export class AuthService {
     }) 
   }
 
-  onUserLogin(): Observable<any> {
+  public onUserLogin(): Observable<any> {
     var observable = this.firebaseAuth.onAuthStateChanged()
     observable.subscribe(user => {
       if (user) this._currentUser = user;

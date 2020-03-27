@@ -17,7 +17,7 @@
             *ngFor="let ag of ageGroups" 
             class="single-select-tile" 
             [ngClass]="{ 'active': formData.ag === ag.value }"
-            (click)="formData.ag = ag.value"> 
+            (click)="formData.ag = ag.value; slides.slideTo(1, 700, true);"> 
             <ion-card>
               <ion-img height="100" src="{{ 'assets/lottie/' + ag.icon }}"></ion-img>
               <ion-card-content>
@@ -89,33 +89,18 @@
         </ion-row>
 
         <ion-row class="btn-row">
+          <ion-col size="2" class="back-button" (click)="slides.slideTo(0, 700, true);">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+            <small>{{ 'BACK' | translate }}</small>
+          </ion-col>
           <ion-col>
-            <ion-button expand="block" (click)="fireAuth()">{{ 'ASK.LOGIN' | translate }}</ion-button>
+            <ion-button expand="block" (click)="!netBusy && fireAuth()">
+              <ion-spinner name="dots" *ngIf="netBusy"></ion-spinner>
+              <span *ngIf="!netBusy">{{ 'UPDATE' | translate }}</span>
+            </ion-button>
           </ion-col>
         </ion-row>
 
-      </ion-grid>
-    </ion-slide>
-
-    <!--Current Covid Status-->
-    <ion-slide>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <h3>
-              Which category below includes your age?
-            </h3>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-        </ion-row>
-
-        <ion-row>
-          <ion-col>
-            <ion-button expand="block" (click)="fireAuth()">Done</ion-button>
-          </ion-col>
-        </ion-row>
       </ion-grid>
     </ion-slide>
   </ion-slides>

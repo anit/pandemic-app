@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import { TranslateConfigService } from '../../translate-config.service';
 import { Router } from '@angular/router';
+import { IonSlides } from '@ionic/angular';
 
 
 @Component({
@@ -9,13 +10,14 @@ import { Router } from '@angular/router';
   templateUrl: './ask.page.html',
   styleUrls: ['./ask.page.scss'],
 })
-export class AskPage implements OnInit {
+export class AskPage {
+  @ViewChild(IonSlides, {static: false}) slides: IonSlides;
+
+  public netBusy: boolean = false;
 
   public formData: Object = { 
     ag: null, 
     tags: [],
-    exposure: [],
-    status: null,
     symptoms: []
   };
   public ageGroups: Array<Object> = [
@@ -52,16 +54,10 @@ export class AskPage implements OnInit {
     private translateConfigService: TranslateConfigService,
     private router: Router) { }
 
-  ngOnInit() {
-  }
-
-  setFormData(key, value) {
-    this.formData[key] = value;
-  }
-
   fireAuth() {
+    this.netBusy = true
     this.authService.createUser().then(() => {
       this.router.navigateByUrl('/detail')
-    })
+    }).finally(() => this.netBusy = false);
   }
 }

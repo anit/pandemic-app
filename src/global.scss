@@ -46,3 +46,12 @@
         transform: scale(1.05);
     }
 }
+
+.swiper-slide {
+    align-items: baseline;
+}
+
+ion-col.back-button {
+    display: flex;
+    align-items: center;
+}
