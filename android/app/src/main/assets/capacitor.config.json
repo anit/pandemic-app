@@ -1,6 +1,6 @@
 {
-  "appId": "com.r41.gocorona",
-  "appName": "gocorona-ionic",
+  "appId": "com.test.corona",
+  "appName": "Go Corona",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
