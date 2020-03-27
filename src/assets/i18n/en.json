@@ -6,11 +6,14 @@
         "NEXT_BTN": "Proceed",
 
         "PRIVACY": "Privacy First",
-        "PRIVACY_SUB": "Login anonymously. Your data vanishes from our server on uninstall. Its that simple.",
+        "PRIVACY_SUB": "Use app anonymously. We don't gather any data related to your identity. So update your covid status confidently without the fear of ostracisation.",
         "NEXT_BTN2": "Next",
 
         "PEOPLE": "For and By the people",
-        "PEOPLE_SUB": "Share your covid status regularly and anonymously. Be that one stitch who saves 9.",
+        "PEOPLE_SUB": "Your covid status will help us serve you better insights about the infection spread. Lets get on this fight together by providing accurate and timely covid infection data.",
         "NEXT_BTN3": "Get Started"
+    },
+    "ASK": {
+        "LOGIN": "Login"
     }
 }

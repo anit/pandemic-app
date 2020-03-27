@@ -6,6 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { TranslateService } from '@ngx-translate/core';
 import { Globalization } from '@ionic-native/globalization/ngx';
 import { MobileAccessibility } from '@ionic-native/mobile-accessibility/ngx';
+import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +17,13 @@ import { MobileAccessibility } from '@ionic-native/mobile-accessibility/ngx';
 export class AppComponent {
   constructor(
     private platform: Platform,
+    private router: Router,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private translate: TranslateService,
     private globalization: Globalization,
-    private mobileAccessibility: MobileAccessibility
+    private mobileAccessibility: MobileAccessibility,
+    private authService: AuthService
   ) {
     this.initializeApp();
     this.translate.setDefaultLang('en');
@@ -31,6 +35,13 @@ export class AppComponent {
       this.splashScreen.hide();
 
       this.mobileAccessibility.usePreferredTextZoom(false);
+      this.authService.onUserLogin().subscribe(user => {
+        if (user) {
+          this.router.navigateByUrl('/detail');
+        } else {
+          this.router.navigateByUrl('/intro');
+        }
+      })
     });
 
     this.globalization.getPreferredLanguage().then(res => {
