@@ -17,4 +17,50 @@
             }
         }
     }
-}
+
+    // Responsive style
+    @media (max-height: 700px) {
+        h3 {
+            font-size: 1.2em;
+        }
+
+        ion-label {
+            font-size: .83em;
+        }
+
+        ion-icon {
+            height: 11vh;
+            width: 10vw;
+        }
+
+        small {
+            font-size: .9em;
+        }
+
+        ion-button {
+            height: 10vh;
+            width: 65vw;
+            margin: 0 0 0 12vw;
+        }
+    }
+
+    @media (max-height: 615px) {
+        h3 {
+            font-size: .95em;
+        }
+
+        ion-label {
+            font-size: .75em;
+        }
+    }
+
+    @media (max-height: 570px) {
+        h3 {
+            font-size: .78em;
+        }
+
+        ion-label {
+            font-size: .63em;
+        }
+    }
+}   
