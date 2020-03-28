@@ -14,7 +14,7 @@
 
         <ion-row class="animation-wrapper">
           <ion-col>
-            <ion-img class="anime" height="400" [src]="animations.welcome"></ion-img>
+            <ion-img height="400" [src]="animations.welcome"></ion-img>
           </ion-col>
         </ion-row>
 
@@ -31,7 +31,7 @@
 
         <ion-row class="btn-row">
           <ion-col>
-            <ion-button class="btn" expand="block" (click)="goToSlide(1)">{{ 'INTRO.NEXT_BTN' | translate }}</ion-button>
+            <ion-button expand="block" (click)="goToSlide(1)">{{ 'INTRO.NEXT_BTN' | translate }}</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -50,7 +50,7 @@
 
         <ion-row class="animation-wrapper">
           <ion-col>
-            <ion-img class="anime" height="400" [src]="animations.privacy"></ion-img>
+            <ion-img height="400" [src]="animations.privacy"></ion-img>
           </ion-col>
         </ion-row>
 
@@ -60,14 +60,14 @@
               <strong>{{ 'INTRO.PRIVACY' | translate }}</strong>
             </h3>
             <div class="sub">
-              <small class="sub-text">{{ 'INTRO.PRIVACY_SUB' | translate }}</small>
+              <small>{{ 'INTRO.PRIVACY_SUB' | translate }}</small>
             </div>
           </ion-col>
         </ion-row>
 
         <ion-row class="btn-row">
           <ion-col>
-            <ion-button class="btn" expand="block" (click)="goToSlide(2)">{{ 'INTRO.NEXT_BTN2' | translate }}</ion-button>
+            <ion-button expand="block" (click)="goToSlide(2)">{{ 'INTRO.NEXT_BTN2' | translate }}</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -86,7 +86,7 @@
 
         <ion-row class="animation-wrapper">
           <ion-col>
-            <ion-img class="anime" height="400" [src]="animations.people"></ion-img>
+            <ion-img height="400" [src]="animations.people"></ion-img>
           </ion-col>
         </ion-row>
 
@@ -96,14 +96,14 @@
               <strong>{{ 'INTRO.PEOPLE' | translate }}</strong>
             </h3>
             <div class="sub">
-              <small class="sub-text">{{ 'INTRO.PEOPLE_SUB' | translate }}</small>
+              <small>{{ 'INTRO.PEOPLE_SUB' | translate }}</small>
             </div>
           </ion-col>
         </ion-row>
 
         <ion-row class="btn-row">
           <ion-col>
-            <ion-button class="btn" expand="block" routerLink="/ask">{{ 'INTRO.NEXT_BTN3' | translate }}</ion-button>
+            <ion-button expand="block" routerLink="/ask">{{ 'INTRO.NEXT_BTN3' | translate }}</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>

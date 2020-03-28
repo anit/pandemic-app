@@ -1,7 +1,7 @@
 .intro-wrapper {
     ion-slides {
         height: 100%;
-
+            
         ion-slide {
             align-items: normal;
         }
@@ -28,23 +28,56 @@
 
 
     // Responsive styles
+    @media (max-width: 600px) {
+        h1 {
+            font-size: 2em;
+        }
+
+        ion-img {
+           margin-top: 2vh;
+           height: 48vh;
+        }
+
+        h3 {
+            margin-top: 5vh;
+            font-size: 1.4em;
+        }
+
+        small {
+            font-size: .92em;
+        }
+
+        ion-button {
+            margin-left: 0;
+            width: 95vw;
+            height: 8vh;
+            font-size: .9em;
+        }
+    }
+
     @media (max-width: 420px) {
         h1 {
             font-size: 1.6em;
         }
 
-        .anime {
-           height: 270px;
+        ion-img {
+           height: 42vh;
         }
 
-        .sub-text {
+        h3 {
+            margin-top: 5vh;
+            font-size: 1.1em;
+        }
+
+        small {
             font-size: .7em;
         }
 
-        .btn {
+        ion-button {
             margin-left: 0;
             width: 95vw;
             height: 8vh;
+            font-size: .9em;
         }
     }
 
@@ -53,19 +86,18 @@
             font-size: 1.5em;
         }
 
-        .anime {
-           height: 160px;
+        ion-img {
+           height: 36vh;
         }
 
-        .sub-text {
+        small {
             font-size: .7em;
         }
 
-        .btn {
-            height: 40px;
-            width: 300px;
-            margin: 0 0 5px 0;
+        ion-button {
+            font-size: .85em;
         }
     }
+
 }
 
