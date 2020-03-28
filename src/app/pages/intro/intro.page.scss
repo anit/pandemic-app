@@ -25,4 +25,47 @@
         bottom: 0;
         width: 100%;
     }
+
+
+    // Responsive styles
+    @media (max-width: 420px) {
+        h1 {
+            font-size: 1.6em;
+        }
+
+        .anime {
+           height: 270px;
+        }
+
+        .sub-text {
+            font-size: .7em;
+        }
+
+        .btn {
+            margin-left: 0;
+            width: 95vw;
+            height: 8vh;
+        }
+    }
+
+    @media (max-width: 320px) {
+        h1 {
+            font-size: 1.5em;
+        }
+
+        .anime {
+           height: 160px;
+        }
+
+        .sub-text {
+            font-size: .7em;
+        }
+
+        .btn {
+            height: 40px;
+            width: 300px;
+            margin: 0 0 5px 0;
+        }
+    }
 }
+
