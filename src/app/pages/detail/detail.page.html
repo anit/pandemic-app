@@ -1,10 +1,59 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>detail</ion-title>
+    <ion-card-content>
+      <ion-card-subtitle>Your status <ion-badge color="success">Good</ion-badge> &nbsp;<a role="button">Change</a></ion-card-subtitle>
+    </ion-card-content>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card-content class="stats-wrapper pb-0">
+    <ion-card-subtitle>Patna</ion-card-subtitle>
+    <ion-chip color="danger">
+      <ion-label>
+        <ion-card-subtitle color="danger">Confirmed <br> <strong>734</strong></ion-card-subtitle>
+      </ion-label>
+    </ion-chip>
+    <ion-chip color="primary">
+      <ion-label>
+        <ion-card-subtitle color="primary">Active <br> <strong>678</strong></ion-card-subtitle>
+      </ion-label>
+    </ion-chip>
+    <ion-chip color="success">
+      <ion-label>
+        <ion-card-subtitle color="success">Recovered <br> <strong>43</strong></ion-card-subtitle>
+      </ion-label>
+    </ion-chip>
+    <ion-chip color="warning">
+      <ion-label>
+        <ion-card-subtitle color="warning">Deceased <br> <strong>24</strong></ion-card-subtitle>
+      </ion-label>
+    </ion-chip>
+  </ion-card-content>
+
+  <ion-card-content class="stats-wrapper">
+    <ion-card-subtitle>Bihar</ion-card-subtitle>
+    <ion-chip color="danger">
+      <ion-label>
+        <ion-card-subtitle color="danger">Confirmed <br> <strong>734</strong></ion-card-subtitle>
+      </ion-label>
+    </ion-chip>
+    <ion-chip color="primary">
+      <ion-label>
+        <ion-card-subtitle color="primary">Active  <br> <strong>678</strong></ion-card-subtitle>
+      </ion-label>
+    </ion-chip>
+    <ion-chip color="success">
+      <ion-label>
+        <ion-card-subtitle color="success">Recovered <br> <strong>43</strong></ion-card-subtitle>
+      </ion-label>
+    </ion-chip>
+    <ion-chip color="warning">
+      <ion-label>
+        <ion-card-subtitle color="warning">Deceased <br> <strong>24</strong></ion-card-subtitle>
+      </ion-label>
+    </ion-chip>
+  </ion-card-content>
 
   Your Location is {{ myLoc.coords && myLoc.coords.latitude }} {{ myLoc.coords && myLoc.coords.longitude }}
   Any reported error is {{ error | json }}

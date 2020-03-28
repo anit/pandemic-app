@@ -1,0 +1,19 @@
+ion-header {
+    ion-card-content {
+        padding: 10px 15px;
+        ion-badge {
+            position: relative;
+            top: 5px;
+        }
+    }
+}
+
+.stats-wrapper {
+    ion-chip {
+        margin: 2px 1px;
+        border-radius: 2px;
+        ion-card-subtitle {
+            text-transform: capitalize;
+        }
+    }
+}
