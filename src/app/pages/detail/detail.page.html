@@ -1,61 +1,46 @@
-<ion-header>
+<ion-app>
+  <!-- Header section -->
   <ion-toolbar>
-    <ion-card-content>
-      <ion-card-subtitle>Your status <ion-badge color="success">Good</ion-badge> &nbsp;<a role="button">Change</a></ion-card-subtitle>
-    </ion-card-content>
+    <ion-title><h1>Your Status</h1></ion-title>
   </ion-toolbar>
-</ion-header>
 
-<ion-content>
-  <ion-card-content class="stats-wrapper pb-0">
-    <ion-card-subtitle>Patna</ion-card-subtitle>
-    <ion-chip color="danger">
-      <ion-label>
-        <ion-card-subtitle color="danger">Confirmed <br> <strong>734</strong></ion-card-subtitle>
-      </ion-label>
-    </ion-chip>
-    <ion-chip color="primary">
-      <ion-label>
-        <ion-card-subtitle color="primary">Active <br> <strong>678</strong></ion-card-subtitle>
-      </ion-label>
-    </ion-chip>
-    <ion-chip color="success">
-      <ion-label>
-        <ion-card-subtitle color="success">Recovered <br> <strong>43</strong></ion-card-subtitle>
-      </ion-label>
-    </ion-chip>
-    <ion-chip color="warning">
-      <ion-label>
-        <ion-card-subtitle color="warning">Deceased <br> <strong>24</strong></ion-card-subtitle>
-      </ion-label>
-    </ion-chip>
-  </ion-card-content>
+  <!-- Slider section -->
+  <ion-content fullscreen class="ion-padding" scroll-y="false">
+    <ion-slides spaceBetween="60" slidesPerView="2">
 
-  <ion-card-content class="stats-wrapper">
-    <ion-card-subtitle>Bihar</ion-card-subtitle>
-    <ion-chip color="danger">
-      <ion-label>
-        <ion-card-subtitle color="danger">Confirmed <br> <strong>734</strong></ion-card-subtitle>
-      </ion-label>
-    </ion-chip>
-    <ion-chip color="primary">
-      <ion-label>
-        <ion-card-subtitle color="primary">Active  <br> <strong>678</strong></ion-card-subtitle>
-      </ion-label>
-    </ion-chip>
-    <ion-chip color="success">
-      <ion-label>
-        <ion-card-subtitle color="success">Recovered <br> <strong>43</strong></ion-card-subtitle>
-      </ion-label>
-    </ion-chip>
-    <ion-chip color="warning">
-      <ion-label>
-        <ion-card-subtitle color="warning">Deceased <br> <strong>24</strong></ion-card-subtitle>
-      </ion-label>
-    </ion-chip>
-  </ion-card-content>
+      <ion-slide>
+        <div class="slide">
+          <ion-card>
+            <h2>Delhi</h2>
+          </ion-card>
+          
+        </div>
+      </ion-slide>
 
-  Your Location is {{ myLoc.coords && myLoc.coords.latitude }} {{ myLoc.coords && myLoc.coords.longitude }}
-  Any reported error is {{ error | json }}
+      <ion-slide>
+        <div class="slide">
+          <ion-card>
+            <h2>Banglore</h2>
+          </ion-card>
+        </div>
+      </ion-slide>
 
-</ion-content>
+      <ion-slide>
+        <div class="slide">
+          <ion-card>
+            <h2>Pune</h2>
+          </ion-card>
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div class="slide">
+          <ion-card>
+            <h2>Hyderabad</h2>
+          </ion-card>
+        </div>
+      </ion-slide>
+
+    </ion-slides>
+  </ion-content>
+</ion-app>
