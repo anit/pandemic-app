@@ -50,8 +50,8 @@
         ion-button {
             margin-left: 0;
             width: 95vw;
-            height: 8vh;
-            font-size: .9em;
+            height: 7.5vh;
+            font-size: 1.1em;
         }
     }
 
@@ -66,18 +66,18 @@
 
         h3 {
             margin-top: 5vh;
-            font-size: 1.1em;
+            font-size: .85em;
         }
 
         small {
-            font-size: .7em;
+            font-size: .65em;
         }
 
         ion-button {
             margin-left: 0;
             width: 95vw;
-            height: 8vh;
-            font-size: .9em;
+            height: 7.2vh;
+            font-size: .8em;
         }
     }
 
@@ -91,7 +91,7 @@
         }
 
         small {
-            font-size: .7em;
+            font-size: .6em;
         }
 
         ion-button {
@@ -99,5 +99,100 @@
         }
     }
 
+    @media (min-height: 680px) {
+        h1 {
+            font-size: 1.7em;
+        }
+
+        ion-img {
+           height: 46vh;
+        }
+
+        h3 {
+            font-size: 1em;
+            margin-top: 6vh;
+        }
+
+        small {
+            font-size: .82em;
+        }
+
+        ion-button {
+            font-size: 1em;
+            height: 7vh;
+        }
+    }
+
+    @media (min-height: 880px) {
+        h1 {
+            font-size: 2.2em;
+        }
+
+        ion-img {
+           height: 47vh;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin-top: 6vh;
+        }
+
+        small {
+            font-size: .88em;
+        }
+
+        ion-button {
+            font-size: 1.2em;
+            height: 7vh;
+        }
+    }
+
+    @media (min-height: 1024px) {
+        h1 {
+            font-size: 3em;
+        }
+
+        ion-img {
+           height: 55vh;
+        }
+
+        h3 {
+            font-size: 1.7em;
+            margin-top: 5.5vh;
+        }
+
+        small {
+            font-size: 1.1em;
+        }
+
+        ion-button {
+            font-size: 1.4em;
+            height: 7.6vh;
+        }
+    }
+
+    @media (min-height: 1340px) {
+        h1 {
+            font-size: 3.2em;
+        }
+
+        ion-img {
+           height: 56vh;
+        }
+
+        h3 {
+            font-size: 1.9em;
+            margin-top: 5.2vh;
+        }
+
+        small {
+            font-size: 1.4em;
+        }
+
+        ion-button {
+            font-size: 1.8em;
+            height: 7.6vh;
+        }
+    }
 }
 
