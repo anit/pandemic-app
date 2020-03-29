@@ -1,51 +1,248 @@
-<ion-content class="detail-wrapper">
-  <!-- Header section -->
-  <ion-toolbar>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="6">
-          <h2>Your Status</h2>
-        </ion-col>
-        <ion-col>
-          <h3>Good</h3>
-        </ion-col>
-        <ion-col>
-          <h3>
-            <a href="#">Change</a>
-          </h3>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
-
-  <!-- Slider section -->
-  <ion-content>
-    <ion-slides slidesPerView="auto" spaceBetween="-20">
-
+<ion-app>
+  <ion-content class="detail-wrapper">
+    <!-- Header section -->
+    <ion-toolbar>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Your Status</ion-card-title>
+          <ion-card-title class="status">Good</ion-card-title>
+          <ion-card-title><a href="#">Change</a></ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-toolbar>
+    
+    <!-- Slider section -->
+    <ion-slides slidesPerView="auto" spaceBetween="0">
+      <!-- First Slide -->
       <ion-slide>
         <ion-card>
-          
+          <!-- City Data -->
+          <ion-card-header>
+            <div class="location">
+              <ion-card-title>City</ion-card-title>
+            </div>
+            <!-- Case data -->
+            <div class="cases">
+              <div class="case-data">
+                <ion-card-subtitle class="cnf">65</ion-card-subtitle>
+                <ion-label class="cnf">Confirmed</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="atv">50</ion-card-subtitle>
+                <ion-label class="atv">Active</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="rls">10</ion-card-subtitle>
+                <ion-label class="rls">Released</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="dcd">5</ion-card-subtitle>
+                <ion-label class="dcd">Deceased</ion-label>
+              </div>  
+            </div>
+          </ion-card-header>
+
+          <!-- State Data -->
+          <ion-card-header>
+            <div class="location">
+              <ion-card-title>State</ion-card-title>
+            </div>
+            <!-- Case data -->
+            <div class="cases">
+              <div class="case-data">
+                <ion-card-subtitle class="cnf">165</ion-card-subtitle>
+                <ion-label class="cnf">Confirmed</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="atv">120</ion-card-subtitle>
+                <ion-label class="atv">Active</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="rls">20</ion-card-subtitle>
+                <ion-label class="rls">Released</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="dcd">15</ion-card-subtitle>
+                <ion-label class="dcd">Deceased</ion-label>
+              </div>  
+            </div>
+          </ion-card-header>
         </ion-card>
       </ion-slide>
 
+      <!-- Second Slide -->
       <ion-slide>
         <ion-card>
-          
+          <!-- City Data -->
+          <ion-card-header>
+            <div class="location">
+              <ion-card-title>City</ion-card-title>
+            </div>
+            <!-- Case data -->
+            <div class="cases">
+              <div class="case-data">
+                <ion-card-subtitle class="cnf">65</ion-card-subtitle>
+                <ion-label class="cnf">Confirmed</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="atv">50</ion-card-subtitle>
+                <ion-label class="atv">Active</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="rls">10</ion-card-subtitle>
+                <ion-label class="rls">Released</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="dcd">5</ion-card-subtitle>
+                <ion-label class="dcd">Deceased</ion-label>
+              </div>  
+            </div>
+          </ion-card-header>
+
+          <!-- State Data -->
+          <ion-card-header>
+            <div class="location">
+              <ion-card-title>State</ion-card-title>
+            </div>
+            <!-- Case data -->
+            <div class="cases">
+              <div class="case-data">
+                <ion-card-subtitle class="cnf">165</ion-card-subtitle>
+                <ion-label class="cnf">Confirmed</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="atv">120</ion-card-subtitle>
+                <ion-label class="atv">Active</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="rls">20</ion-card-subtitle>
+                <ion-label class="rls">Released</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="dcd">15</ion-card-subtitle>
+                <ion-label class="dcd">Deceased</ion-label>
+              </div>  
+            </div>
+          </ion-card-header>
         </ion-card>
       </ion-slide>
 
+      <!-- Third Slide -->
       <ion-slide>
         <ion-card>
-          
+          <!-- City Data -->
+          <ion-card-header>
+            <div class="location">
+              <ion-card-title>City</ion-card-title>
+            </div>
+            <!-- Case data -->
+            <div class="cases">
+              <div class="case-data">
+                <ion-card-subtitle class="cnf">65</ion-card-subtitle>
+                <ion-label class="cnf">Confirmed</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="atv">50</ion-card-subtitle>
+                <ion-label class="atv">Active</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="rls">10</ion-card-subtitle>
+                <ion-label class="rls">Released</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="dcd">5</ion-card-subtitle>
+                <ion-label class="dcd">Deceased</ion-label>
+              </div>  
+            </div>
+          </ion-card-header>
+
+          <!-- State Data -->
+          <ion-card-header>
+            <div class="location">
+              <ion-card-title>State</ion-card-title>
+            </div>
+            <!-- Case data -->
+            <div class="cases">
+              <div class="case-data">
+                <ion-card-subtitle class="cnf">165</ion-card-subtitle>
+                <ion-label class="cnf">Confirmed</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="atv">120</ion-card-subtitle>
+                <ion-label class="atv">Active</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="rls">20</ion-card-subtitle>
+                <ion-label class="rls">Released</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="dcd">15</ion-card-subtitle>
+                <ion-label class="dcd">Deceased</ion-label>
+              </div>  
+            </div>
+          </ion-card-header>
         </ion-card>
       </ion-slide>
 
+      <!-- Fourth Slide -->
       <ion-slide>
         <ion-card>
-          
+          <!-- City Data -->
+          <ion-card-header>
+            <div class="location">
+              <ion-card-title>City</ion-card-title>
+            </div>
+            <!-- Case data -->
+            <div class="cases">
+              <div class="case-data">
+                <ion-card-subtitle class="cnf">65</ion-card-subtitle>
+                <ion-label class="cnf">Confirmed</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="atv">50</ion-card-subtitle>
+                <ion-label class="atv">Active</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="rls">10</ion-card-subtitle>
+                <ion-label class="rls">Released</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="dcd">5</ion-card-subtitle>
+                <ion-label class="dcd">Deceased</ion-label>
+              </div>  
+            </div>
+          </ion-card-header>
+
+          <!-- State Data -->
+          <ion-card-header>
+            <div class="location">
+              <ion-card-title>State</ion-card-title>
+            </div>
+            <!-- Case data -->
+            <div class="cases">
+              <div class="case-data">
+                <ion-card-subtitle class="cnf">165</ion-card-subtitle>
+                <ion-label class="cnf">Confirmed</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="atv">120</ion-card-subtitle>
+                <ion-label class="atv">Active</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="rls">20</ion-card-subtitle>
+                <ion-label class="rls">Released</ion-label>
+              </div>
+              <div class="case-data">
+                <ion-card-subtitle class="dcd">15</ion-card-subtitle>
+                <ion-label class="dcd">Deceased</ion-label>
+              </div>  
+            </div>
+          </ion-card-header>
         </ion-card>
       </ion-slide>
-
     </ion-slides>
+
+    <!-- Map section -->
+    
   </ion-content>
-</ion-content>
+</ion-app>
