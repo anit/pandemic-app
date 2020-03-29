@@ -19,9 +19,57 @@
     }
 
     // Responsive style
-    @media (max-height: 700px) {
+    @media (max-height: 1366px) {
+        h2 {
+            font-size: 2.2em;
+        }
+
+        h3 {
+            font-size: 1.8em;
+        }
+
+        ion-label {
+            font-size: 1.5em;
+        }
+
+        ion-img {
+            height: 13vh;
+        }
+
+        ion-button {
+            height: 5vh;
+        }
+    }
+
+    @media (max-height: 960px) {
+        h3 {
+            font-size: 1.6em;
+        }
+
+        ion-label {
+            font-size: 1.2em;
+        }
+
+        ion-img {
+            height: 12vh;
+        }
+
+        ion-button {
+            height: 5vh;
+        }
+    }
+
+    @media (max-height: 880px) {
+        h2{
+            font-size: 1.3em;
+        }
+
         h3 {
             font-size: 1.2em;
+        }
+        
+        ion-img {
+            height: 10vh;
         }
 
         ion-label {
@@ -63,4 +111,23 @@
             font-size: .63em;
         }
     }
+
+    @media (max-height: 480px) {
+        h3 {
+            font-size: .55em;
+        }
+
+        ion-label {
+            font-size: .5em;
+        }
+
+        ion-img {
+            height: 10vh;
+        }
+
+        ion-button {
+            height: 5vh;
+        }
+    }
+
 }   
