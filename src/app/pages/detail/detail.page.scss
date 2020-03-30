@@ -1,26 +1,112 @@
-ion-slides {
-    height: 100%;
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
-    ion-slide {
-        display: block;
-        width: 80vw!important;
-    }
-        
-    ion-slide h2 {
-    margin-top: 2.8rem;
-    color: #fff;
+.detail-wrapper {
+
+    ion-toolbar {
+        ion-card {
+            margin-left: 5vw;
+            margin-bottom: 2vh;
+            background-color: #3F51B5;
+            width: 81vw;
+            height: 8vh;
+
+            ion-card-header {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+
+                ion-card-title {
+                    font-family: "Poppins", "Roboto";
+                    font-size: 1.1em;
+                    color: #fff;
+                    font-weight: 600;
+                    letter-spacing: .04em;
+
+                    a {
+                        text-decoration: none;
+                        color: #97e7fb;
+                    }
+                }
+
+                .status {
+                    color: #87ff6a;
+                }
+            }
+        }
     }
     
-    ion-slide img {
-    max-height: 50%;
-    max-width: 80%;
-    margin: 60px 0 40px;
-    pointer-events: none;
+
+    ion-slides {
+        margin-top: -2.5vh;
+        
+        ion-slide {
+            display: block;
+            width: 85vw!important;
+            padding: 0;
+            margin: 0 0 0 2vw;
+        }
+    
+        ion-slide h2 {
+            color: #fff;
+        }
+
+        ion-card {
+            background-color: #3F51B5;
+            height: 40vh;
+            border-radius: 10px;
+            margin-right: 0;
+
+            ion-card-header {
+                margin-top: 0.7vh;
+                
+                ion-card-title {
+                    font-size: 1.2em;
+                    color: #fff;
+                    letter-spacing: .08em;
+                }
+
+                .location {
+                    display: flex;
+                    justify-content: flex-start;
+                }
+
+                .cases {
+                    display: flex;
+                    justify-content: space-around;
+                    margin-top: 3vh;
+    
+                    ion-card-subtitle {
+                        font-size: 1.5em;
+                        font-weight: 800;
+                    }
+
+                    ion-label {
+                        font-size: .8em;
+                    }
+
+                    .cnf {
+                        color: #f5af3f;
+                    }
+
+                    .atv {
+                        color: #e8ff66;
+                    }
+
+                    .rls {
+                        color: #87ff6a;
+                    }
+
+                    .dcd {
+                        color: #ec7546;
+                    }  
+                }
+            }   
+        }
     }
+
 }
 
 
-ion-card {
-    background-color: #5c8de9;
-    height: 25vh;
-}
+
+
