@@ -22,6 +22,9 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { LocationService as GoogleLocationService } from '@ionic-native/google-maps';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+import { LocationService } from './services/location.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -54,8 +57,11 @@ export function createTranslateLoader(http: HttpClient) {
     Globalization,
     MobileAccessibility,
     TranslateConfigService,
+    LocationService,
     FirebaseAuthentication,
+    GoogleLocationService,
     Geolocation,
+    NativeGeocoder,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
