@@ -6,8 +6,7 @@ import {
   PushNotificationActionPerformed, 
   LocalNotifications} from '@capacitor/core';
 import { DbService } from './db.service';
-import { AuthService } from './auth.service';
-import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 const { PushNotifications } = Plugins;
@@ -19,14 +18,13 @@ export class NotificationService {
 
   private _token: PushNotificationToken;
 
-  constructor(private dbService: DbService, private authService: AuthService, private firebaseAuth: FirebaseAuthentication) {
+  constructor(private dbService: DbService, private af: AngularFireAuth) {
     this.registerListeners()
     this.registerOnLogin()
   }
 
   registerOnLogin() {
-    var observable = this.firebaseAuth.onAuthStateChanged()
-    observable.subscribe(user => {
+    this.af.auth.onAuthStateChanged((user) => {
       this.updateTokenToDb(user)
     })
   }
@@ -36,7 +34,7 @@ export class NotificationService {
     PushNotifications.addListener('registration', 
       (token: PushNotificationToken) => {
         this._token = token;
-        this.updateTokenToDb(this.authService.currentUser)
+        this.updateTokenToDb(this.af.auth.currentUser)
       }
     );
 
@@ -53,13 +51,29 @@ export class NotificationService {
         alert('Push received: ' + JSON.stringify(notification));
       }
     );
+
+    PushNotifications.addListener('pushNotificationReceived', 
+      (notification: PushNotification) => {
+        alert('Push received: ' + JSON.stringify(notification));
+      }
+    );
+
+    PushNotifications.addListener('pushNotificationActionPerformed', 
+      (notification: PushNotificationActionPerformed) => {
+        alert('Push action performed: ' + JSON.stringify(notification));
+      }
+    );
   }
 
 
   updateTokenToDb(user) {
     if (user && this._token) {
-      this.dbService.updateDoc('users', this.authService.currentUser.uid, {
-        notificationToken: this._token
+      // this.dbService.addDoc('users', {
+      //   uid: user.uid,
+      //   notificationToken: this._token.value
+      // })
+      this.dbService.updateDoc('users', user.uid, {
+        notificationToken: this._token.value
       })
     } else {
       console.log('Not able to set token into db')

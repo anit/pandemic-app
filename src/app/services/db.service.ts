@@ -18,6 +18,10 @@ export class DbService {
       })
   }
 
+  addDoc(coll, data) {
+    this.dbStoreService.collection(coll).add(data)
+  }
+
   updateDoc (coll, doc, data) {
     // create document if it doesnt exist.
     this.dbStoreService.doc(`${coll}/${doc}`).set({}, { merge: true });

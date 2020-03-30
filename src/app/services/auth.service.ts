@@ -2,29 +2,32 @@
 
 import { Injectable } from '@angular/core';
 import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
-import { Observable } from 'rxjs';
+import { Observable, observable, Observer } from 'rxjs';
 import { NotificationService } from './notification.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   public currentUser: any
-  constructor(private firebaseAuth: FirebaseAuthentication) {}
+  constructor(private af: AngularFireAuth) {}
 
   createUser(): Promise<any> {
-    return this.firebaseAuth.signInAnonymously().then((res) => {
-      this.currentUser = res
+    return this.af.auth.setPersistence(auth.Auth.Persistence.LOCAL).then(() => {
+      return this.af.auth.signInAnonymously();
     }) 
   }
 
   public onUserLogin(): Observable<any> {
-    var observable = this.firebaseAuth.onAuthStateChanged()
-    observable.subscribe(user => {
-      if (user) this.currentUser = user;
-      this.firebaseAuth.getIdToken(false).then(token => {
-        this.currentUser.token = token
+    return Observable.create((observer: Observer<any>) => {
+      this.af.auth.onAuthStateChanged(user => {
+        if (user) {
+          this.currentUser = user
+        }
+        return this.currentUser
       })
     })
-    return observable;
   }
 }
