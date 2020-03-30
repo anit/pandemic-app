@@ -5,36 +5,43 @@
 
     ion-toolbar {
         ion-card {
-            margin-left: 5vw;
-            margin-bottom: 2vh;
-            background-color: #3F51B5;
             width: 81vw;
             height: 8vh;
+            margin: 2.5vh 0 2.5vh 5vw;
+            background-color: #3F51B5;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
 
-            ion-card-header {
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
+        ion-card-header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            min-height: 8vh;
+        }
 
-                ion-card-title {
-                    font-family: "Poppins", "Roboto";
-                    font-size: 1.1em;
-                    color: #fff;
-                    font-weight: 600;
-                    letter-spacing: .04em;
+        ion-card-title {
+            font-family: "Poppins", "Roboto";
+            font-size: 1.1em;
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: .04em;
+            margin-top: 0;
 
-                    a {
-                        text-decoration: none;
-                        color: #97e7fb;
-                    }
-                }
-
-                .status {
-                    color: #87ff6a;
-                }
+            a {
+                text-decoration: none;
+                color: #97e7fb;
             }
         }
+
+        .status {
+            color: #87ff6a;
+            margin-top: 0;
+        }
     }
+    
     
 
     ion-slides {
@@ -42,9 +49,9 @@
         
         ion-slide {
             display: block;
-            width: 85vw!important;
+            width: 88vw!important;
             padding: 0;
-            margin: 0 0 0 2vw;
+            margin: 0;
         }
     
         ion-slide h2 {
@@ -52,61 +59,247 @@
         }
 
         ion-card {
+            width: 81vw;
+            min-height: 38vh;
             background-color: #3F51B5;
-            height: 40vh;
-            border-radius: 10px;
-            margin-right: 0;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            margin: 1vh 0 1vh 5vw;
+        }
 
-            ion-card-header {
-                margin-top: 0.7vh;
-                
-                ion-card-title {
-                    font-size: 1.2em;
-                    color: #fff;
-                    letter-spacing: .08em;
-                }
+        ion-card-header {
+            padding: 4vh 3vw 2vh 3vw;
+        }
+        
+        ion-card-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: .08em;
+        }
 
-                .location {
-                    display: flex;
-                    justify-content: flex-start;
-                }
+        .location {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 1.2vh;
+        }
 
-                .cases {
-                    display: flex;
-                    justify-content: space-around;
-                    margin-top: 3vh;
+        .cases {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 3vh;
+
+            ion-card-subtitle {
+                font-size: 1.5em;
+                font-weight: 800;
+            }
+
+            ion-label {
+                font-size: .8em;
+                text-transform: uppercase;
+            }
+
+            .cnf {
+                color: #f5af3f;
+            }
+
+            .atv {
+                color: #e8ff66;
+            }
+
+            .rls {
+                color: #87ff6a;
+            }
+
+            .dcd {
+                color: #ec7546;
+            }  
+        }
     
-                    ion-card-subtitle {
-                        font-size: 1.5em;
-                        font-weight: 800;
-                    }
+    }
 
-                    ion-label {
-                        font-size: .8em;
-                    }
 
-                    .cnf {
-                        color: #f5af3f;
-                    }
+    // Responsive styles
+    @media (max-width: 820px) {
 
-                    .atv {
-                        color: #e8ff66;
-                    }
+        ion-toolbar {
+            ion-card-title {
+                font-size: 1.5em;
+            }
+        }
 
-                    .rls {
-                        color: #87ff6a;
-                    }
+        ion-slides {
 
-                    .dcd {
-                        color: #ec7546;
-                    }  
+            ion-card-title {
+                font-size: 1.3em;
+            }
+
+            .cases {
+                ion-card-subtitle {
+                    font-size: 1.5em;
                 }
-            }   
+    
+                ion-label {
+                    font-size: 1em;
+                }  
+            }    
         }
     }
 
+    @media (max-width: 540px) {
+
+        ion-toolbar {
+            ion-card-title {
+                font-size: 1em;
+            }
+        }
+
+        ion-slides {
+
+            ion-card-title {
+                font-size: 1em;
+            }
+
+            .cases {
+                ion-card-subtitle {
+                    font-size: 1.3em;
+                }
+    
+                ion-label {
+                    font-size: .8em;
+                }  
+            }    
+        }
+    }
+
+    @media (max-width: 420px) {
+
+        ion-toolbar {
+            ion-card-title {
+                font-size: .9em;
+            }
+        }
+
+        ion-slides {
+            ion-card-title {
+                font-size: .9em;
+            }
+
+            .cases {
+                ion-card-subtitle {
+                    font-size: 1.2em;
+                }
+    
+                ion-label {
+                    font-size: .7em;
+                }  
+            }    
+        }
+    }
+
+    @media (max-width: 325px) {
+
+        ion-toolbar {
+            ion-card-title {
+                font-size: .75em;
+            }
+        }
+
+        ion-slides {
+            ion-card-title {
+                font-size: .75em;
+            }
+
+            .cases {
+                ion-card-subtitle {
+                    font-size: .8em;
+                }
+    
+                ion-label {
+                    font-size: .5em;
+                }  
+            }    
+        }
+    }
+
+    @media (min-height: 920px) {
+
+        ion-toolbar {
+            ion-card-title {
+                font-size: 1.2em;
+            }
+        }
+
+        ion-slides {
+
+            ion-card-title {
+                font-size: 1.2em;
+            }
+
+            .cases {
+                ion-card-subtitle {
+                    font-size: 1.5em;
+                }
+    
+                ion-label {
+                    font-size: .9em;
+                }  
+            }    
+        }
+    }
+
+    @media (min-height: 980px) {
+
+        ion-toolbar {
+            ion-card-title {
+                font-size: 1.6em;
+            }
+        }
+
+        ion-slides {
+
+            ion-card-title {
+                font-size: 1.6em;
+            }
+
+            .cases {
+                ion-card-subtitle {
+                    font-size: 1.8em;
+                }
+    
+                ion-label {
+                    font-size: 1.2em;
+                }  
+            }    
+        }
+    }
+
+
+    @media (min-height: 1025px) {
+
+        ion-toolbar {
+            ion-card-title {
+                font-size: 1.8em;
+            }
+        }
+
+        ion-slides {
+
+            ion-card-title {
+                font-size: 1.8em;
+            }
+
+            .cases {
+                ion-card-subtitle {
+                    font-size: 2.1em;
+                }
+    
+                ion-label {
+                    font-size: 1.5em;
+                }  
+            }    
+        }
+    }
+
+   
 }
-
-
-
-
