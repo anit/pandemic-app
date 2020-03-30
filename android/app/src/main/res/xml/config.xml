@@ -64,6 +64,10 @@
     <param name="android-package" value="plugin.google.maps.PluginStreetViewPanorama"/>
   </feature>
 
+  <feature name="NativeGeocoder">
+    <param name="android-package" value="cordova.plugin.nativegeocoder.NativeGeocoder"/>
+  </feature>
+
   <feature name="NetworkStatus">
     <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager"/>
   </feature>

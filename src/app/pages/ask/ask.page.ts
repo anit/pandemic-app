@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
 import { DbService } from '../../services/db.service';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { LocationService } from '../../services/location.service';
 
 
 @Component({
@@ -56,7 +57,8 @@ export class AskPage {
     private translateConfigService: TranslateConfigService,
     private router: Router,
     private af: AngularFireAuth,
-    private dbStoreService: DbService) { }
+    private dbStoreService: DbService,
+    private locationService: LocationService) { }
 
     serializeFormData () {
       var fd = this.formData
@@ -71,9 +73,11 @@ export class AskPage {
     this.netBusy = true
     var unsubscribe = this.af.auth.onAuthStateChanged(user => {
       if (user) {
+        this.authService.currentUser = user;
         this.dbStoreService.updateDoc('users', user.uid, this.serializeFormData());
         this.netBusy = false;
         this.router.navigateByUrl('/detail')
+        this.locationService.setCurrentCity();
         unsubscribe();
       }
     });

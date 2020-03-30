@@ -13,11 +13,6 @@ export class DetailPage implements OnInit {
 
   constructor(private locationService: LocationService) { }
 
-  ngOnInit() {
-    this.locationService.setCurrentCity().then((resp) => {
-      this.myLoc = this.locationService.currentLocation || resp || {};
-      this.error = this.error;
-    })
-  }
+  ngOnInit() { }
 
 }
