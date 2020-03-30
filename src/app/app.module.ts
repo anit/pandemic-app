@@ -19,6 +19,9 @@ import { TranslateConfigService } from './translate-config.service';
 import { MobileAccessibility } from '@ionic-native/mobile-accessibility/ngx';
 import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -38,6 +41,9 @@ export function createTranslateLoader(http: HttpClient) {
           deps: [HttpClient]
       }
     }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     HttpClientModule,
     AppRoutingModule
   ],

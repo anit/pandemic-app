@@ -8,6 +8,8 @@ import { Globalization } from '@ionic-native/globalization/ngx';
 import { MobileAccessibility } from '@ionic-native/mobile-accessibility/ngx';
 import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
+import { NotificationService } from './services/notification.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +25,9 @@ export class AppComponent {
     private translate: TranslateService,
     private globalization: Globalization,
     private mobileAccessibility: MobileAccessibility,
-    private authService: AuthService
+    private authService: AuthService,
+    private af: AngularFireAuth,
+    private notificationService: NotificationService
   ) {
     this.initializeApp();
     this.translate.setDefaultLang('en');
@@ -33,14 +37,13 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.notificationService.checkPermissions();
 
       this.mobileAccessibility.usePreferredTextZoom(false);
-      this.authService.onUserLogin().subscribe(user => {
-        if (user) {
-          this.router.navigateByUrl('/detail');
-        } else {
-          this.router.navigateByUrl('/intro');
-        }
+      this.af.authState.subscribe(auth => {
+        console.log('auth is ', auth)
+        if (auth) this.router.navigateByUrl('/detail');
+        else this.router.navigateByUrl('/intro'); 
       })
     });
 
