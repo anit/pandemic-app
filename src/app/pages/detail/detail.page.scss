@@ -8,8 +8,6 @@
 .detail-wrapper {
 
     ion-toolbar {
-        margin-bottom: 3vh;
-        border: 2px solid blueviolet;
         ion-card {
             width: 81vw;
             height: 8vh;
@@ -19,7 +17,6 @@
             border-top-right-radius: 10px;
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
-            border: 2px solid rgb(43, 226, 52);
         }
 
         ion-card-header {
@@ -57,11 +54,7 @@
             width: 88vw!important;
             padding: 0;
             margin: 0;
-            border: 2px solid black;
-        }
 
-        .swiper-slide-prev {
-            margin: 0 12vw 0 0;
         }
 
         ion-slide h2 {
@@ -75,7 +68,6 @@
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
             margin: 1vh 0 1vh 5vw;
-            border: 2px solid #f31d1d;
         }
 
         ion-card-header {
