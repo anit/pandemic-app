@@ -12,7 +12,7 @@
             width: 81vw;
             height: 8vh;
             margin: 2.5vh 0 2.5vh 5vw;
-            background-color: #3F51B5;
+            background-color: #0a071d;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             border-bottom-left-radius: 0;
@@ -24,6 +24,7 @@
             justify-content: space-around;
             align-items: center;
             min-height: 8vh;
+            padding: 10px;
         }
 
         ion-card-title {
@@ -41,7 +42,17 @@
         }
 
         .status {
-            color: #87ff6a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            letter-spacing: .15em;
+            height: 3.5vh;
+            width: 16vw;
+            border-radius: 2em;
+            background-color: #85fbb2;
+            color: #020a03;
             margin-top: 0;
         }
     }
@@ -64,7 +75,7 @@
         ion-card {
             width: 81vw;
             min-height: 38vh;
-            background-color: #3F51B5;
+            background-color: #0a071d;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
             margin: 1vh 0 1vh 5vw;
@@ -103,19 +114,19 @@
             }
 
             .cnf {
-                color: #f5af3f;
+                color: #f59032;
             }
 
             .atv {
-                color: #e8ff66;
+                color: #ebd723;
             }
 
             .rls {
-                color: #87ff6a;
+                color: #22eb4d;
             }
 
             .dcd {
-                color: #ec7546;
+                color: #ee5b20;
             }  
         }
     
@@ -132,23 +143,57 @@
 
         ion-toolbar {
             ion-card-title {
-                font-size: 1.5em;
+                font-size: 1.4em;
+            }
+
+            .status {
+                font-size: 1em;
             }
         }
 
         ion-slides {
 
             ion-card-title {
-                font-size: 1.3em;
+                font-size: 1.4em;
             }
 
             .cases {
                 ion-card-subtitle {
-                    font-size: 1.5em;
+                    font-size: 1.6em;
                 }
     
                 ion-label {
-                    font-size: 1em;
+                    font-size: .9em;
+                }  
+            }    
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        ion-toolbar {
+            ion-card-title {
+                font-size: 1em;
+            }
+
+            .status {
+                font-size: .9em;
+            }
+        }
+
+        ion-slides {
+
+            ion-card-title {
+                font-size: 1em;
+            }
+
+            .cases {
+                ion-card-subtitle {
+                    font-size: 1.3em;
+                }
+    
+                ion-label {
+                    font-size: .8em;
                 }  
             }    
         }
@@ -159,6 +204,10 @@
         ion-toolbar {
             ion-card-title {
                 font-size: 1em;
+            }
+
+            .status {
+                font-size: .8em;
             }
         }
 
@@ -183,12 +232,22 @@
     @media (max-width: 420px) {
 
         ion-toolbar {
+
             ion-card-title {
                 font-size: .9em;
+            }
+
+            .status {
+                font-size: .6em;
             }
         }
 
         ion-slides {
+
+            ion-card {
+                margin: 1vh 0 1.5vh 5vw;
+            }
+
             ion-card-title {
                 font-size: .9em;
             }
@@ -205,15 +264,58 @@
         }
     }
 
-    @media (max-width: 325px) {
+    @media (max-width: 370px) {
+
+        ion-toolbar {
+            ion-card-title {
+                font-size: .8em;
+            }
+
+            .status {
+                font-size: .55em;
+            }
+        }
+
+        ion-slides {
+
+            ion-card {
+                margin: 1vh 0 1vh 5vw;
+            }
+
+            ion-card-title {
+                font-size: .85em;
+            }
+
+            .cases {
+                ion-card-subtitle {
+                    font-size: .9em;
+                }
+    
+                ion-label {
+                    font-size: .55em;
+                }  
+            }    
+        }
+    }
+
+    @media (max-width: 320px) {
 
         ion-toolbar {
             ion-card-title {
                 font-size: .75em;
             }
+
+            .status {
+                font-size: .5em;
+            }
         }
 
         ion-slides {
+
+            ion-card {
+                margin: 1vh 0 0vh 5vw;
+            }
+
             ion-card-title {
                 font-size: .75em;
             }
@@ -256,11 +358,42 @@
         }
     }
 
+    @media (min-height: 960px) {
+
+        ion-toolbar {
+            ion-card-title {
+                font-size: 1.4em;
+            }
+        }
+
+        ion-slides {
+
+            ion-card-title {
+                font-size: 1.5em;
+            }
+
+            .cases {
+                ion-card-subtitle {
+                    font-size: 1.7em;
+                }
+    
+                ion-label {
+                    font-size: .9em;
+                }  
+            }    
+        }
+    }
+
+
     @media (min-height: 980px) {
 
         ion-toolbar {
             ion-card-title {
                 font-size: 1.6em;
+            }
+
+            .status {
+                font-size: 1.1em;
             }
         }
 
