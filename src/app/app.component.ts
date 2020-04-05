@@ -6,10 +6,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { TranslateService } from '@ngx-translate/core';
 import { Globalization } from '@ionic-native/globalization/ngx';
 import { MobileAccessibility } from '@ionic-native/mobile-accessibility/ngx';
-import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
 import { NotificationService } from './services/notification.service';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -25,9 +25,9 @@ export class AppComponent {
     private translate: TranslateService,
     private globalization: Globalization,
     private mobileAccessibility: MobileAccessibility,
-    private authService: AuthService,
     private af: AngularFireAuth,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private authService: AuthService
   ) {
     this.initializeApp();
     this.translate.setDefaultLang('en');
@@ -41,9 +41,13 @@ export class AppComponent {
 
       this.mobileAccessibility.usePreferredTextZoom(false);
       this.af.authState.subscribe(auth => {
-        console.log('auth is ', auth)
-        if (auth) this.router.navigateByUrl('/detail');
-        else this.router.navigateByUrl('/intro'); 
+        if (auth) {
+          AuthService.CurrentUser.uid = auth.uid;
+          this.authService.createUserObserver();  
+          this.router.navigateByUrl('/detail');
+        } else {
+          this.router.navigateByUrl('/intro');
+        } 
       })
     });
 

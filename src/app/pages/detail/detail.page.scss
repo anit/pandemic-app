@@ -1,10 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
-
-* {
-    box-sizing: border-box;
-}
-
 .detail-wrapper {
 
     ion-toolbar {
@@ -58,40 +51,6 @@
     }
 
     ion-slides {
-        margin-top: -2.5vh;
-
-        ion-slide {
-            display: block;
-            width: 88vw!important;
-            padding: 0;
-            margin: 0;
-
-        }
-
-        ion-slide h2 {
-            color: #fff;
-        }
-
-        ion-card {
-            width: 81vw;
-            min-height: 38vh;
-            background-color: #0a071d;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            margin: 1vh 0 1vh 5vw;
-        }
-
-        ion-card-header {
-            padding: 4vh 3vw 2vh 3vw;
-        }
-        
-        ion-card-title {
-            font-size: 1.2em;
-            font-weight: 600;
-            color: #fff;
-            letter-spacing: .08em;
-        }
-
         .location {
             display: flex;
             justify-content: flex-start;

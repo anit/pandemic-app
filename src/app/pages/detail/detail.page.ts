@@ -14,9 +14,7 @@ export class DetailPage implements OnInit {
   public error: any = {};
 
   constructor(private locationService: LocationService) { }
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
-  }
+  ngOnInit(): void { }
 
   showChart() {
     var data = google.visualization.arrayToDataTable([

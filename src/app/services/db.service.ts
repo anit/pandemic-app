@@ -19,12 +19,14 @@ export class DbService {
   }
 
   addDoc(coll, data) {
-    this.dbStoreService.collection(coll).add(data)
+    return this.dbStoreService.collection(coll).add(data)
   }
 
   updateDoc (coll, doc, data) {
     // create document if it doesnt exist.
-    this.dbStoreService.doc(`${coll}/${doc}`).set({}, { merge: true });
-    this.dbStoreService.doc(`${coll}/${doc}`).set(data, { merge: true });
+    return Promise.all([
+      this.dbStoreService.doc(`${coll}/${doc}`).set({}, { merge: true }),
+      this.dbStoreService.doc(`${coll}/${doc}`).set(data, { merge: true })
+    ])
   }
 }

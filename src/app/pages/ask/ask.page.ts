@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
 import { DbService } from '../../services/db.service';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { LocationService } from '../../services/location.service';
+import { LocationService, FallbackLocation } from '../../services/location.service';
 
 
 @Component({
@@ -21,7 +21,8 @@ export class AskPage {
   public formData: Object = { 
     ag: null, 
     tags: {},
-    symptoms: {}
+    symptoms: {},
+    homeLocation: {}
   };
   public ageGroups: Array<Object> = [
     { label: 'Under 12yrs Old',   value: '< 12', icon: 'kid.svg' },
@@ -58,26 +59,40 @@ export class AskPage {
     private router: Router,
     private af: AngularFireAuth,
     private dbStoreService: DbService,
-    private locationService: LocationService) { }
+    private locationService: LocationService) {
+      this.locationService.getCurrentCity()
+        .then(location => this.formData['homeLocation'] = location)
+        .catch(_ => this.formData['homeLocation'] = FallbackLocation);
+    }
 
     serializeFormData () {
       var fd = this.formData
       var tags = Object.keys(fd['tags']).filter(i => !!fd['tags'][i]);
       fd['ag'] && tags.push(fd['ag']);
       return {
-        tags: tags
+        tags: tags,
+        homeLocation: fd['homeLocation']
       }
     }
 
   fireAuth() {
+    if (this.netBusy) return;
+
     this.netBusy = true
     var unsubscribe = this.af.auth.onAuthStateChanged(user => {
       if (user) {
-        this.authService.currentUser = user;
-        this.dbStoreService.updateDoc('users', user.uid, this.serializeFormData());
-        this.netBusy = false;
-        this.router.navigateByUrl('/detail')
-        this.locationService.setCurrentCity();
+        this
+          .dbStoreService
+          .updateDoc('users', user.uid, this.serializeFormData())
+          .then(_ => {
+            this.netBusy = false;
+            this.router.navigateByUrl('/detail')
+            this.authService.createUserObserver()
+          })
+          .catch(err => {
+            console.log('Error creating user after ask screen')
+            this.af.auth.signOut();
+          });
         unsubscribe();
       }
     });
