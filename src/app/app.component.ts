@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { NotificationService } from './services/notification.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from './services/auth.service';
+import { LocationService } from './services/location.service';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +28,7 @@ export class AppComponent {
     private mobileAccessibility: MobileAccessibility,
     private af: AngularFireAuth,
     private notificationService: NotificationService,
+    private locationService: LocationService,
     private authService: AuthService
   ) {
     this.initializeApp();
@@ -38,6 +40,7 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.notificationService.checkPermissions();
+      this.locationService.startBackgroundLocation();
 
       this.mobileAccessibility.usePreferredTextZoom(false);
       this.af.authState.subscribe(auth => {
