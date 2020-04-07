@@ -1,70 +1,54 @@
 <ion-app>
   <ion-content class="detail-wrapper">
-    <!-- Slider section -->
-    <ion-slides slidesPerView="auto" spaceBetween="0">
-      <!-- First Slide -->
-      <ion-slide>
-        <ion-card>
-          <!-- City Data -->
-          <ion-card-header>
-            <div class="location">
-              <ion-card-title>City</ion-card-title>
-            </div>
-            <!-- Case data -->
-            <div class="cases">
-              <div class="case-data">
-                <ion-card-subtitle class="cnf">65</ion-card-subtitle>
-                <ion-label class="cnf">Confirmed</ion-label>
-              </div>
-              <div class="case-data">
-                <ion-card-subtitle class="atv">50</ion-card-subtitle>
-                <ion-label class="atv">Active</ion-label>
-              </div>
-              <div class="case-data">
-                <ion-card-subtitle class="rls">10</ion-card-subtitle>
-                <ion-label class="rls">Released</ion-label>
-              </div>
-              <div class="case-data">
-                <ion-card-subtitle class="dcd">5</ion-card-subtitle>
-                <ion-label class="dcd">Deceased</ion-label>
-              </div>  
-            </div>
-          </ion-card-header>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title *ngIf="stateStats">{{ stateStats.name }}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-card>
+      <ion-card-content *ngIf="stateStats">
+        <ion-row class="stats">
+          <ion-col>
+            <ion-label>{{ stateStats.positive }}</ion-label>
+            <ion-label>Positive</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{ stateStats.dead }}</ion-label>
+            <ion-label>Dead</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{ stateStats.recovered }}</ion-label>
+            <ion-label>Recovered</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{ stateStats.total }}</ion-label>
+            <ion-label>Total</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
 
-          <!-- State Data -->
-          <ion-card-header>
-            <div class="location">
-              <ion-card-title>State</ion-card-title>
+    <!-- Map section -->
+    <ion-card>
+      <ion-card-content>
+        <div id="detail-map-canvas">
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-slides [options]="patientSlideOpts">
+      <ion-slide class="patient-slide" *ngFor="let patient of recentPatients | async">
+        <ion-card class="patients">
+          <ion-card-content>
+            <div >
+              {{ patient | json }}
             </div>
-            <!-- Case data -->
-            <div class="cases">
-              <div class="case-data">
-                <ion-card-subtitle class="cnf">165</ion-card-subtitle>
-                <ion-label class="cnf">Confirmed</ion-label>
-              </div>
-              <div class="case-data">
-                <ion-card-subtitle class="atv">120</ion-card-subtitle>
-                <ion-label class="atv">Active</ion-label>
-              </div>
-              <div class="case-data">
-                <ion-card-subtitle class="rls">20</ion-card-subtitle>
-                <ion-label class="rls">Released</ion-label>
-              </div>
-              <div class="case-data">
-                <ion-card-subtitle class="dcd">15</ion-card-subtitle>
-                <ion-label class="dcd">Deceased</ion-label>
-              </div>  
-            </div>
-          </ion-card-header>
+          </ion-card-content>
         </ion-card>
-
-        <!-- Map section -->
-        <ion-card>
-          <button ion-button (click)="showChart()">Show Chart</button>
-          <div id="regions_div"></div>
-        </ion-card>
-
       </ion-slide>
     </ion-slides>
+    
   </ion-content>
+
+
 </ion-app>

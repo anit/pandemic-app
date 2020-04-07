@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
 import { DbService } from '../../services/db.service';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { LocationService, FallbackLocation } from '../../services/location.service';
+import { LocationService } from '../../services/location.service';
+import { FallbackLocation } from 'src/app/models/app-location';
 
 
 @Component({
@@ -63,17 +64,17 @@ export class AskPage {
       this.locationService.getCurrentCity()
         .then(location => this.formData['homeLocation'] = location)
         .catch(_ => this.formData['homeLocation'] = FallbackLocation);
-    }
+  }
 
-    serializeFormData () {
-      var fd = this.formData
-      var tags = Object.keys(fd['tags']).filter(i => !!fd['tags'][i]);
-      fd['ag'] && tags.push(fd['ag']);
-      return {
-        tags: tags,
-        homeLocation: fd['homeLocation']
-      }
+  serializeFormData () {
+    var fd = this.formData
+    var tags = Object.keys(fd['tags']).filter(i => !!fd['tags'][i]);
+    fd['ag'] && tags.push(fd['ag']);
+    return {
+      tags: tags,
+      homeLocation: fd['homeLocation']
     }
+  }
 
   fireAuth() {
     if (this.netBusy) return;
@@ -89,10 +90,7 @@ export class AskPage {
             this.router.navigateByUrl('/detail')
             this.authService.createUserObserver()
           })
-          .catch(err => {
-            console.log('Error creating user after ask screen')
-            this.af.auth.signOut();
-          });
+          .catch(err => this.af.auth.signOut());
         unsubscribe();
       }
     });

@@ -59,3 +59,15 @@ ion-col.back-button {
     display: flex;
     align-items: center;
 }
+
+ion-card {
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 1%, rgba(238,174,202,1) 46%, rgba(148,187,233,1) 100%); 
+        
+    ion-row.expand {
+        height: 4vh;
+        ion-icon {
+            margin: auto auto;
+        }
+    }
+}

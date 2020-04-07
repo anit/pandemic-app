@@ -54,9 +54,6 @@ export class AppComponent {
       })
     });
 
-    this.globalization.getPreferredLanguage().then(res => {
-      this.translate.use(res.value);
-      console.log("Setting language to ", res)
-    })
+    this.globalization.getPreferredLanguage().then(res => this.translate.use(res.value))
   }
 }

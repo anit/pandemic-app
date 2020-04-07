@@ -49,6 +49,7 @@
     "cordova-support-google-services": "^1.4.0",
     "core-js": "^2.5.4",
     "firebase": "^7.13.1",
+    "geofirestore": "^3.4.1",
     "nan": "^2.14.0",
     "ng-lottie": "^0.3.2",
     "phonegap-plugin-mobile-accessibility": "^1.0.5",

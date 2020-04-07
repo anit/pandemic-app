@@ -6,17 +6,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { Observable, Observer } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AppLocation, FallbackLocation } from './location.service';
+import { AppUser } from '../models/app-user';
+import * as firebase from 'firebase';
 
 const { Storage } = Plugins;
-
-export class AppUser {
-  uid: string = '';
-  homeLocation: AppLocation = FallbackLocation;
-  otherLocations: Array<AppLocation> = [];
-  tags: Array<string> = []
-  notificationToken: string = '';
-}
 
 @Injectable({
   providedIn: 'root'
@@ -45,11 +38,14 @@ export class AuthService {
     this.afStore.doc<any>(`users/${AuthService.CurrentUser.uid}`)
       .valueChanges()
       .subscribe(user => {
+        if (!user) return;
+
         var currentUser = AuthService.CurrentUser;
-        currentUser.homeLocation = user.homeLocation;
-        currentUser.otherLocations = user.otherLocations;
-        currentUser.tags = user.tags;
-        currentUser.notificationToken = user.notificationToken;
+        currentUser.homeLocation = user.homeLocation || currentUser.homeLocation;
+        currentUser.otherLocations = user.otherLocations || currentUser.otherLocations;
+        currentUser.tags = user.tags || currentUser.tags;
+        currentUser.notificationToken = user.notificationToken || currentUser.notificationToken;
+        Storage.set({ key: 'CurrentUser', value: JSON.stringify(currentUser) })
       });
   }
 

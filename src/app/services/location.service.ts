@@ -4,24 +4,7 @@ import { NativeGeocoder, NativeGeocoderOptions } from '@ionic-native/native-geoc
 import { BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationEvents, BackgroundGeolocationResponse, BackgroundGeolocationOriginal, BackgroundGeolocationLocationProvider } from '@ionic-native/background-geolocation';
 import { DbService } from './db.service';
 import { AuthService } from './auth.service';
-
-export class AppLocation {
-  public latitude: string;
-  public longitude: string;
-  public postalCode: string;
-  public state: string;
-  public city: string;
-
-  constructor () {}
-}
-
-export const FallbackLocation: AppLocation = { 
-  latitude: '28.6151947',
-  longitude: '77.2059342',
-  postalCode: '110004',
-  state: 'Delhi',
-  city: 'New Delhi'
-}
+import { AppLocation, FallbackLocation } from '../models/app-location';
 
 @Injectable({
   providedIn: 'root'
@@ -46,13 +29,14 @@ export class LocationService {
       .then(resp => resp.coords)
       .then(coords => this.nativeGeocoder.reverseGeocode(coords.latitude, coords.longitude, this.geoencoderOptions))
       .then(result => {
-        const { latitude, longitude, administrativeArea, subAdministrativeArea, postalCode } = result[0];
+        const { latitude, longitude, administrativeArea, subAdministrativeArea, locality, postalCode } = result[0];
         return {
           latitude,
           longitude,
           postalCode,
           state: administrativeArea,
-          city: subAdministrativeArea
+          district: subAdministrativeArea,
+          city: locality
         };
       })
   }
@@ -67,15 +51,11 @@ export class LocationService {
     BackgroundGeolocation.on(BackgroundGeolocationEvents.location).subscribe(location => {
       if (!AuthService.CurrentUser.uid) return;
       BackgroundGeolocation.startTask().then(taskKey => {
-        return this.dbService.updateDoc(`users`, AuthService.CurrentUser.uid, {
-          coords: {
-            latitude: location.latitude,
-            longitude: location.longitude
-          }
-        })
-        .then(_ => {
-          BackgroundGeolocation.endTask(taskKey);
-        })
+        return this.dbService
+          .updateUserFootprint(location.latitude, location.longitude, AuthService.CurrentUser.uid)
+          .finally(() => {
+            BackgroundGeolocation.endTask(taskKey);
+          })
       })
     })
 

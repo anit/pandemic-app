@@ -67,28 +67,15 @@ export class NotificationService {
 
 
   updateTokenToDb(user) {
-    if (user && this._token) {
-      // this.dbService.addDoc('users', {
-      //   uid: user.uid,
-      //   notificationToken: this._token.value
-      // })
-      this.dbService.updateDoc('users', user.uid, {
-        notificationToken: this._token.value
-      })
-    } else {
-      console.log('Not able to set token into db')
-    }
+    user && this._token && this.dbService.updateDoc('users', user.uid, {
+      notificationToken: this._token.value
+    })
   }
 
   async checkPermissions () {
     PushNotifications.requestPermissions().then( result => {
-      console.log('result is ', result )
-      if (result) {
-        // Register with Apple / Google to receive push via APNS/FCM
-        PushNotifications.register();
-      } else {
-        // Show some error
-      }
+      // Register with Apple / Google to receive push via APNS/FCM
+      result && PushNotifications.register();
     });
 
   }
