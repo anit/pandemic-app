@@ -9,13 +9,11 @@
         min-height: 50vh;
     }
 
-    ion-card.patients {
-        height: 30vh;
-    }
-
     .patient-slide {
         ion-card {
-            margin: 0
+            margin: 0;
+            width: 100%;
+            height: 20vh;
         }
     }
 }

@@ -37,12 +37,33 @@
     </ion-card>
 
     <ion-slides [options]="patientSlideOpts">
-      <ion-slide class="patient-slide" *ngFor="let patient of recentPatients | async">
-        <ion-card class="patients">
+      <ion-slide class="patient-slide">
+        <ion-card>
+          <ion-card-header>
+            <ion-icon name="stats-chart-sharp"></ion-icon>
+          </ion-card-header>
           <ion-card-content>
-            <div >
-              {{ patient | json }}
-            </div>
+            <p>Swipe left to see patients in last 48 hours of your state</p>
+            <small>
+              <i>(Source: <a href="https://bit.ly/patientdb">Covid19India PatientDB</a>)</i>
+            </small>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-slide>
+      <ion-slide class="patient-slide" *ngFor="let patient of recentPatients | async">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{ patient.district || patient.state }}</ion-card-subtitle>
+            <ion-card-subtitle *ngIf="patient.city">{{ patient.city }}</ion-card-subtitle>
+            <ion-card-subtitle>Status: {{ patient.status || 'Unknown' }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p *ngIf="patient.notes">{{ patient.notes }}</p>
+            
+            <small *ngIf="patient.sources.length > 0">
+              <i>Source: <a *ngFor="let source of patient.sources; let i = index" href="{{ source }}">Link {{ i + 1 }}</a></i>
+            </small>
           </ion-card-content>
         </ion-card>
       </ion-slide>

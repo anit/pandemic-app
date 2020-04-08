@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ModuleWithComponentFactories } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -22,8 +22,14 @@ export class DbService {
       })
   }
 
-  getPatientsByDistrict(district) {
-    return this.dbStoreService.collection('patients', ref => ref.where('district', '==', district)).valueChanges();
+  getPatientsByState(state) {
+    return this.dbStoreService
+      .collection('patients', ref => ref
+        .where('state', '==', state)
+        .where('announced', '>=', new Date().getTime() - (48 * 60 * 60 * 1000))  
+        .orderBy('announced', 'desc')
+      )
+      .valueChanges();
   }
 
   getStatsByState(state: string) {
@@ -51,7 +57,8 @@ export class DbService {
   }
 
   updateUserFootprint(latidude, longitude, uid) {
-    const geoDoc: GeoDocumentReference = this.geoFireStore.collection(`footprint`).doc(`${uid}`);
+    const timeStamp = new Date().getTime()
+    const geoDoc: GeoDocumentReference = this.geoFireStore.collection(`footprint`).doc(`${uid}${timeStamp}`);
     return Promise.all([
       geoDoc.set({ coordinates: new firestore.GeoPoint(latidude, longitude) }, { merge: true })
     ])

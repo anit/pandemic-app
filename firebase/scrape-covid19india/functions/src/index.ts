@@ -13,16 +13,16 @@ export const scheduledCovid19Scrapper = functions.pubsub.schedule('every 12 hour
         .then((data: Array<any>) => {
             rawPatientData = data;
             return data.filter(item => item.detectedstate && item.patientnumber).map(item => ({
-                patientId: item.patientnumber,
+                patientId: parseInt(item.patientnumber),
                 city: item.detectedcity,
                 district: item.detecteddistrict,
                 state: item.detectedstate,
                 gender: item.gender,
                 age: item.agebracket,
                 status: item.currentstatus,
-                notes: item.backupnotes,
-                created: item.dateannounced && moment(item.dateannounced, 'dd/mm/yyyy').unix(),
-                lastUpdated: item.statuschangedate && moment(item.statuschangedate, 'dd/mm/yyyy').unix(),
+                notes: item.notes || item.backupnotes,
+                announced: item.dateannounced && (+moment(item.dateannounced, 'DD/MM/YYYY')),
+                lastUpdated: (item.statuschangedate || item.dateannounced) && (+moment(item.statuschangedate || item.dateannounced, 'DD/MM/YYYY')),
                 sources: [ item.source1, item.source2, item.source3 ].filter(s => !!s)
             }))
         })

@@ -48,7 +48,9 @@ export class DetailPage {
 
     console.log('fetching patients for city ', AuthService.CurrentUser.homeLocation.district);
     this.recentPatients = this.dbService
-      .getPatientsByDistrict(AuthService.CurrentUser.homeLocation.district);
+      .getPatientsByState(AuthService.CurrentUser.homeLocation.state);
+
+    this.recentPatients.subscribe(ab => console.log('Patients are ', ab))
     await this.loadMap()
   }
 
